@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_lab/getx_demo/getx_home.dart';
-import 'package:get/get.dart';
+import 'package:flutter_lab/hooks/hooks_demo_fundamentals.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -33,13 +32,24 @@ class MyApp extends StatelessWidget {
     /*
     this is a root widget for getx project
     */
-    return GetMaterialApp(
+    // return GetMaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   title: 'Try project before use in real project',
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.cyan,
+    //   ),
+    //   home: TryGetx(),
+    // );
+
+    /*
+    this is a root widget for flutter hooks demo
+     */
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Try project before use in real project',
       theme: ThemeData(
-        primarySwatch: Colors.cyan,
+        primarySwatch: Colors.deepPurple,
       ),
-      home: TryGetx(),
+      home: const HooksDemoFundamentals(),
     );
   }
 }
