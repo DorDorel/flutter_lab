@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter_lab/hooks/hooks_demo_fundamentals.dart';
+import 'package:flutter_lab/riverpod/riverpod_home.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'firebase_options.dart';
+import 'hooks/hooks_demo_fundamentals.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    // App = Riverpod demo application root widget
+    const ProviderScope(
+      child: App(),
+    ),
+
+    // MyApp = Getx, Hooks, freezed demo application root widget
+    // const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -50,6 +60,25 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
       ),
       home: const HooksDemoFundamentals(),
+    );
+  }
+}
+
+/*
+    App is a root widget for riverpod 2.x demo
+  */
+
+class App extends StatelessWidget {
+  const App({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.dark,
+      debugShowCheckedModeBanner: false,
+      home: const RiverpodHome(),
     );
   }
 }

@@ -1,0 +1,13 @@
+MONITOR: 
+- Consumer Widget
+
+PROVIDER DATA:
+- Provider 
+- StateProvider
+- StateNotifierProvider
+- StreamProvider
+- ChangeNotifierProvider
+
+HOLD DATA: 
+- StateNotifier
+- ChangeNotifier
